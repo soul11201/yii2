@@ -51,16 +51,16 @@ abstract class BaseMessageControllerTest extends TestCase
 
     /**
      * Emulates running of the message controller action.
-     * @param  string $actionId id of action to be run.
+     * @param  string $actionID id of action to be run.
      * @param  array  $args     action arguments.
      * @return string command output.
      */
-    protected function runMessageControllerAction($actionId, array $args = [])
+    protected function runMessageControllerAction($actionID, array $args = [])
     {
         $controller = $this->createMessageController();
         ob_start();
         ob_implicit_flush(false);
-        $controller->run($actionId, $args);
+        $controller->run($actionID, $args);
 
         return ob_get_clean();
     }
@@ -139,7 +139,7 @@ abstract class BaseMessageControllerTest extends TestCase
 
     public function testCreateTranslation()
     {
-        $category = 'test_category1';
+        $category = 'test.category1';
         $message = 'test message';
         $sourceFileContent = "Yii::t('{$category}', '{$message}');";
         $this->createSourceFile($sourceFileContent);
@@ -200,7 +200,7 @@ abstract class BaseMessageControllerTest extends TestCase
     /**
      * @depends testMerge
      */
-    public function testMarkObosoleteMessages()
+    public function testMarkObsoleteMessages()
     {
         $category = 'category';
 
@@ -223,7 +223,7 @@ abstract class BaseMessageControllerTest extends TestCase
     /**
      * @depends testMerge
      */
-    public function removeObosoleteMessages()
+    public function removeObsoleteMessages()
     {
         $category = 'category';
 

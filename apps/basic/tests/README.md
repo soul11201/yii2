@@ -21,20 +21,32 @@ Changed current directory to <directory>
 Then add `<directory>/vendor/bin` to you `PATH` environment variable. Now we're able to use `codecept` from command
 line globally.
 
-2. Build the test suites:
+2. Install faker extension by running the following from template root directory where `composer.json` is:
+
+```
+composer require --dev yiisoft/yii2-faker:*
+```
+
+3. Create `yii2_basic_tests` database and update it by applying migrations:
+
+```
+codeception/bin/yii migrate
+```
+
+4. Build the test suites:
 
 ```
 codecept build
 ```
 
-3. In order to be able to run acceptance tests you need to start a webserver. The simplest way is to use PHP built in
+5. In order to be able to run acceptance tests you need to start a webserver. The simplest way is to use PHP built in
 webserver. In the `web` directory execute the following:
 
 ```
 php -S localhost:8080
 ```
 
-4. Now you can run the tests with the following commands:
+6. Now you can run the tests with the following commands:
 
 ```
 # run all available tests

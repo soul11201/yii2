@@ -22,6 +22,7 @@ curl -sS http://getcomposer.org/installer | php
 You can then install the application using the following command:
 
 ~~~
+php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta1"
 php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-advanced /path/to/yii-application
 ~~~
 
@@ -90,7 +91,7 @@ Predefined path aliases
 - `@webroot` - web root directory of currently running web application.
 
 The aliases specific to the directory structure of the advanced application
-(`@common`,  `@frontend`, `@backend`, and `@console`) are defined in `common/config/aliases.php`.
+(`@common`,  `@frontend`, `@backend`, and `@console`) are defined in `common/config/bootstrap.php`.
 
 
 Applications

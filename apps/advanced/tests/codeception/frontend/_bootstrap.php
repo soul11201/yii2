@@ -9,7 +9,8 @@ defined('FRONTEND_ENTRY_FILE') or define('FRONTEND_ENTRY_FILE', YII_APP_BASE_PAT
 
 require_once(YII_APP_BASE_PATH . '/vendor/autoload.php');
 require_once(YII_APP_BASE_PATH . '/vendor/yiisoft/yii2/Yii.php');
-require(YII_APP_BASE_PATH . '/common/config/aliases.php');
+require_once(YII_APP_BASE_PATH . '/common/config/bootstrap.php');
+require_once(YII_APP_BASE_PATH . '/frontend/config/bootstrap.php');
 
 // set correct script paths
 
@@ -18,4 +19,4 @@ $_SERVER['SCRIPT_FILENAME'] = FRONTEND_ENTRY_FILE;
 $_SERVER['SCRIPT_NAME'] = FRONTEND_ENTRY_URL;
 $_SERVER['SERVER_NAME'] = 'localhost';
 
-Yii::setAlias('@codeception', dirname(__DIR__));
+Yii::setAlias('@tests', dirname(dirname(__DIR__)));

@@ -40,7 +40,7 @@ Application Structure
 * [Modules](structure-modules.md)
 * [Filters](structure-filters.md)
 * [Widgets](structure-widgets.md)
-* [Asset Bundles](structure-assets.md)
+* [Assets](structure-assets.md)
 * [Extensions](structure-extensions.md)
 
 
@@ -151,6 +151,7 @@ Testing
 -------
 
 * [Overview](test-overview.md)
+* [Testing environment setup](test-endvironment-setup.md)
 * [Unit Tests](test-unit.md)
 * [Functional Tests](test-functional.md)
 * [Acceptance Tests](test-acceptance.md)

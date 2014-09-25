@@ -40,7 +40,7 @@ $this->title = 'Login';
 Within a view, you can access `$this` which refers to the [[yii\web\View|view component]] managing
 and rendering this view template.
 
-Besides `$this`, there may be other predefined variables in a view, such as `$form` and `$model` in the above
+Besides `$this`, there may be other predefined variables in a view, such as `$model` in the above
 example. These variables represent the data that are *pushed* into the view by [controllers](structure-controllers.md)
 or other objects whose trigger the [view rendering](#rendering-views).
 
@@ -264,7 +264,7 @@ echo $this->render('report', [
 ```
 
 The pull approach actively retrieves data from the [[yii\base\View|view component]] or other objects accessible
-in views (e.g. `Yii::$app`). Using the above code as an example, within the view you can get the controller object
+in views (e.g. `Yii::$app`). Using the code below as an example, within the view you can get the controller object
 by the expression `$this->context`. And as a result, it is possible for you to access any properties or methods
 of the controller in the `report` view, such as the controller ID shown in the following:
 
@@ -415,7 +415,7 @@ In the first step, it determines the layout value and the context module:
 
 - If the [[yii\base\Controller::layout]] property of the controller is not null, use it as the layout value and
   the [[yii\base\Controller::module|module]] of the controller as the context module.
-- If [[yii\base\Controller::layout|layout]] is null, search through all ancestor modules of the controller and 
+- If [[yii\base\Controller::layout|layout]] is null, search through all ancestor modules (including the application itself) of the controller and 
   find the first module whose [[yii\base\Module::layout|layout]] property is not null. Use that module and
   its [[yii\base\Module::layout|layout]] value as the context module and the chosen layout value.
   If such a module cannot be found, it means no layout will be applied.
@@ -551,7 +551,7 @@ You may also frequently use the following minor yet useful features when you are
 
 ### Setting Page Titles <a name="setting-page-titles"></a>
 
-Every Web page should have a title. Normally the title tag is generated in a [layout](#layouts). However, in practice
+Every Web page should have a title. Normally the title tag is being displayed in a [layout](#layouts). However, in practice
 the title is often determined in content views rather than layouts. To solve this problem, [[yii\web\View]] provides
 the [[yii\web\View::title|title]] property for you to pass the title information from content views to layouts.
 
@@ -595,7 +595,7 @@ at the place where you call [[yii\web\View::head()]] in the layout and generate 
 Note that if you call [[yii\web\View::registerMetaTag()]] multiple times, it will register multiple meta tags,
 regardless whether the meta tags are the same or not.
 
-To make sure there is only a single instance of a meta tag type, you can specify a key when calling the method.
+To make sure there is only a single instance of a meta tag type, you can specify a key as a second parameter when calling the method.
 For example, the following code registers two "description" meta tags. However, only the second one will be rendered.
 
 ```html
@@ -658,7 +658,7 @@ For example, the following code injects the current date at the end of the page 
 Static pages refer to those Web pages whose main content are mostly static without the need of accessing
 dynamic data pushed from controllers.
 
-You can generate static pages using the code like the following in a controller:
+You can output static pages by putting their code in the view, and then using the code like the following in a controller:
 
 ```php
 public function actionAbout()

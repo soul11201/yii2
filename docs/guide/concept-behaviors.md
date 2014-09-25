@@ -17,7 +17,6 @@ To define a behavior, create a class that extends [[yii\base\Behavior]], or exte
 ```php
 namespace app\components;
 
-use yii\base\Model;
 use yii\base\Behavior;
 
 class MyBehavior extends Behavior
@@ -211,7 +210,7 @@ You can also call a *public* method of the behavior similarly:
 $component->foo();
 ```
 
-As you can see, although `$component` does not define `prop1` and `bar()`, they can be used as if they are part
+As you can see, although `$component` does not define `prop1` and `foo()`, they can be used as if they are part
 of the component definition due to the attached behavior.
 
 If two behaviors define the same property or method and they are both attached to the same component,
